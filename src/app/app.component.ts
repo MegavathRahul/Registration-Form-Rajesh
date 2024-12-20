@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { NgForm } from '@angular/forms';
+// import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,16 @@ import { Component } from '@angular/core';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'Learning';
+
+  users:any[]=[];
+  addUserData(ref:NgForm)
+  {
+  let userObj = ref.value;
+    
+    this.users.push(userObj)
+
+    console.log(userObj);
+
+    ref.reset(); // clear form fields
+}
 }
